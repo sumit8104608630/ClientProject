@@ -1211,7 +1211,7 @@ window.addEventListener("load", () => {
                             sessionStorage.setItem('modalShown', 'true');
                         }
                       
-                    }, 100);
+                    }, 10);
                 });
             }
 
@@ -1226,13 +1226,14 @@ window.addEventListener("load", () => {
 
               let date =Date.now();
             let showPopUp=()=>{
-                if(10<=Math.floor((Date.now()-date)/1000)){
+                if(30<=Math.floor((Date.now()-date)/1000)){
                      modal.style.display = 'flex';
                      sessionStorage.setItem('modalShown', 'true');
-                
+                     clearInterval(popupInterval)
             }
+            
             }
-           let popUpForm= setInterval(showPopUp,1000)
+          let popupInterval= setInterval(showPopUp,1000)
             if (videoPlaceholder && videoModal) {
                 videoPlaceholder.addEventListener('click', () => {
                     videoModal.style.display = 'flex';
@@ -1240,7 +1241,6 @@ window.addEventListener("load", () => {
                 if (closeVideoModal) {
                     closeVideoModal.addEventListener('click', () => {
                         videoModal.style.display = 'none';
-                        clearInterval(popUpForm)
                     });
                 }
                 
