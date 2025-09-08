@@ -617,10 +617,7 @@
                                 </select>
                                 <div class="error budget-error">Please select a budget range</div>
                             </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                                <textarea name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Your Message"></textarea>
-                            </div>
+                          
                             <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Submit</button>
                         </form>
                     </div>
@@ -986,10 +983,7 @@
                         </select>
                         <div class="error budget-error">Please select a budget range</div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                        <textarea name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Your Message"></textarea>
-                    </div>
+                   
                     <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Submit</button>
                 </form>
             </div>
@@ -1054,10 +1048,7 @@
                     </select>
                     <div class="error budget-error">Please select a budget range</div>
                 </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                    <textarea name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" rows="3" placeholder="Your Message"></textarea>
-                </div>
+             
                 <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Submit</button>
             </form>
         </div>
@@ -1172,7 +1163,11 @@ window.addEventListener("load", () => {
                 });
             }
             
+
+        
           
+
+
             
             // Modal functionality
             const modal = document.getElementById('contactModal');
@@ -1211,10 +1206,16 @@ window.addEventListener("load", () => {
                         const scrollPercentage = (scrollPosition / pageHeight) * 100;
                         
                         // FIXED: Use sessionStorage instead of localStorage for better UX
+                          if (scrollPercentage > 9 && !sessionStorage.getItem('modalShown')) {
+                            modal.style.display = 'flex';
+                            sessionStorage.setItem('modalShown', 'true');
+                        }
                       
                     }, 100);
                 });
             }
+
+
             
             // Video section functionality
             const videoPlaceholder = document.getElementById('videoPlaceholder');
@@ -1223,7 +1224,15 @@ window.addEventListener("load", () => {
             const videoContactForm = document.getElementById('videoContactForm');
             const closeVideoModal = document.getElementById('closeVideoModal');
 
-          
+              let date =Date.now();
+            let showPopUp=()=>{
+                if(10<=Math.floor((Date.now()-date)/1000)){
+                     modal.style.display = 'flex';
+                     sessionStorage.setItem('modalShown', 'true');
+                
+            }
+            }
+           let popUpForm= setInterval(showPopUp,1000)
             if (videoPlaceholder && videoModal) {
                 videoPlaceholder.addEventListener('click', () => {
                     videoModal.style.display = 'flex';
@@ -1231,6 +1240,7 @@ window.addEventListener("load", () => {
                 if (closeVideoModal) {
                     closeVideoModal.addEventListener('click', () => {
                         videoModal.style.display = 'none';
+                        clearInterval(popUpForm)
                     });
                 }
                 
