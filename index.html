@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2939,3 +2938,39 @@ window.addEventListener("load", () => {
 </body>
 </html>
 >>>>>>> a8076792ae7862a65dfe3c6d97a57fff03fb796d
+ne validation
+                if (phone && (!phone.value || !/^\d{10}$/.test(phone.value))) {
+                    const phoneError = form.querySelector('.phone-error');
+                    if (phoneError) showError(phone, phoneError);
+                    isValid = false;
+                } else if (phone) {
+                    const phoneError = form.querySelector('.phone-error');
+                    if (phoneError) hideError(phone, phoneError);
+                }
+                
+                // Budget validation
+                if (budget && !budget.value) {
+                    const budgetError = form.querySelector('.budget-error');
+                    if (budgetError) showError(budget, budgetError);
+                    isValid = false;
+                } else if (budget) {
+                    const budgetError = form.querySelector('.budget-error');
+                    if (budgetError) hideError(budget, budgetError);
+                }
+                
+                return isValid;
+            }
+            
+            function showError(field, errorElement) {
+                field.classList.add('error-field');
+                errorElement.style.display = 'block';
+            }
+            
+            function hideError(field, errorElement) {
+                field.classList.remove('error-field');
+                errorElement.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
