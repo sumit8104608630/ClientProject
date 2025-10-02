@@ -590,7 +590,9 @@
                 <div class="lg:w-1/2 md:mt-0 mb-5 mt-5  lg:pl-12" data-aos="fade-left">
                     <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl">
                         <h2 class="text-2xl font-bold text-secondary mb-6">Register Your Interest</h2>
-                        <form class="space-y-4" id="heroForm">
+                        <form class="space-y-4" method="post" action="https://api.web3forms.com/submit" id="heroForm">
+                                <input type="hidden" name="access_key" value="e9fcba6b-8b45-404b-89a2-d425b34366ce">
+
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
                                 <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Name" required>
@@ -938,31 +940,39 @@
 </section>
 </div>  
     <!-- Floor Plan Section -->
-<div id="floor-plans" class="md:py-10 pt-20" >
-    <section  class="py-16 bg-gray-50">
+<div id="floor-plans" class="md:py-10 relative pt-20">
+    <!-- Blur overlay -->
+    <div id="removeBlur" class="absolute inset-0 backdrop-blur-sm bg-white/30 z-40"></div>
+    
+    <!-- Button on top -->
+    <div id="display_floorBtn" class="w-full justify-center absolute top-1/2 -translate-y-1/2 flex z-50">
+        <button id="btnFloorPlan" class="max-w-max px-6 bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg">📐 Floor Plans</button>
+    </div>
+    
+    <!-- Blurred content -->
+    <section class="py-16 bg-gray-50 relative">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-secondary mb-5" data-aos="fade-up">Floor Plans</h2>
             <div class="grid grid-cols-1 p-4 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                 <div class="floor-plan bg-gray-50 p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+                <div class="floor-plan bg-gray-50 p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-xl font-semibold mb-4 text-center">1 BHK Apartment</h3>
                     <img 
-                    src="./1BHK_photo.jpg"
-                         alt="1 BHK Floor Plan" class="w-full h-64 object-contain ">
-                    <p class="text-center py-2 text-gray-700"> Area: 350 Sq. Ft.</p>
+                        src="./1BHK_photo.jpg"
+                        alt="1 BHK Floor Plan" class="w-full h-64 object-contain">
+                    <p class="text-center py-2 text-gray-700">Area: 350 Sq. Ft.</p>
                 </div>
                 <div class="floor-plan bg-gray-50 p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-xl font-semibold mb-4 text-center">2 BHK Apartment</h3>
                     <img 
-                    src="./2BHK_photo.jpg"
-                         alt="2 BHK Floor Plan" class="w-full h-64 object-contain ">
-                    <p class="text-center py-2 text-gray-700"> Area: 582 Sq. Ft.</p>
+                        src="./2BHK_photo.jpg"
+                        alt="2 BHK Floor Plan" class="w-full h-64 object-contain">
+                    <p class="text-center py-2 text-gray-700">Area: 582 Sq. Ft.</p>
                 </div>
-               
                 <div class="floor-plan bg-gray-50 p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-xl font-semibold  text-center">Tower-F : Floor Plan</h3>
+                    <h3 class="text-xl font-semibold text-center">Tower-F : Floor Plan</h3>
                     <img 
-                    src="./tower.png"
-                         alt="tower Floor Plan" class="w-full h-64 object-contain ">
+                        src="./tower.png"
+                        alt="tower Floor Plan" class="w-full h-64 object-contain">
                     <p class="text-center py-2 text-gray-700">Carpet Area: 1850 Sq. Ft.</p>
                 </div>
             </div>
@@ -996,8 +1006,11 @@
         <div class="modal-content">
             <button class="close-modal ">&times;</button>
             <h2 class="text-2xl font-bold text-secondary mb-6">Watch Project Video</h2>
-            <form class="space-y-4" id="videoContactForm">
+            <form class="space-y-4" method="post"  action="https://api.web3forms.com/submit" id="videoContactForm">
                 <div>
+                    
+                        <input type="hidden" name="access_key" value="e9fcba6b-8b45-404b-89a2-d425b34366ce">
+
                     <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
                     <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Name" required>
                     <div class="error name-error">Please enter a valid name</div>
@@ -1082,7 +1095,9 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-white mb-12" data-aos="fade-up">Get in Touch</h2>
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md" data-aos="zoom-in">
-                <form class="space-y-4" id="contactForm">
+                <form class="space-y-4" method="POST" action="https://api.web3forms.com/submit"  id="contactForm">
+                        <input type="hidden" name="access_key" value="e9fcba6b-8b45-404b-89a2-d425b34366ce">
+
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
                         <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Name" required>
@@ -1138,42 +1153,48 @@
     </footer>
 
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal text-lg font-semibold "  id="closeVideoModal">x</button>
-            <h2 class="text-2xl font-bold text-secondary mb-6">Contact Us</h2>
-            <form class="space-y-4" id="modalForm">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                    <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Name" required>
-                    <div class="error name-error">Please enter a valid name</div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
-                    <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Email" required>
-                    <div class="error email-error">Please enter a valid email</div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
-                    <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Phone" required>
-                    <div class="error phone-error">Please enter a valid 10-digit phone number</div>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Budget Range *</label>
-                    <select name="budget" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
-                        <option value="">Select Budget Range</option>
-                        <option value="1-1.5">₹1 Cr - ₹1.5 Cr</option>
-                        <option value="1.5-2">₹1.5 Cr - ₹2 Cr</option>
-                        <option value="2-2.5">₹2 Cr - ₹2.5 Cr</option>
-                        <option value="2.5+">Above ₹2.5 Cr</option>
-                    </select>
-                    <div class="error budget-error">Please select a budget range</div>
-                </div>
-             
-                <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Submit</button>
-            </form>
-        </div>
-    </div>
+   <div id="contactModal" class="modal">
+  <div class="modal-content">
+    <button class="close-modal text-lg font-semibold" id="closeVideoModal">x</button>
+    <h2 class="text-2xl font-bold text-secondary mb-6">Contact Us</h2>
+
+    <form class="space-y-4" method="POST" action="https://api.web3forms.com/submit" id="modalForm">
+      <!-- Required Web3Forms fields -->
+      <input type="hidden" name="access_key" value="e9fcba6b-8b45-404b-89a2-d425b34366ce">
+     
+      <!-- User Inputs -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+        <input type="text" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Name" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+        <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Email" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+        <input type="tel" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Phone" required>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Budget Range *</label>
+        <select name="budget" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" required>
+          <option value="">Select Budget Range</option>
+          <option value="1-1.5">₹1 Cr - ₹1.5 Cr</option>
+          <option value="1.5-2">₹1.5 Cr - ₹2 Cr</option>
+          <option value="2-2.5">₹2 Cr - ₹2.5 Cr</option>
+          <option value="2.5+">Above ₹2.5 Cr</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
 
     <script>
         // FIXED: Better AOS initialization
@@ -1303,6 +1324,11 @@ window.addEventListener("load", () => {
                     });
                 });
                 
+                const floor_plan_btn=document.getElementById("btnFloorPlan");
+                floor_plan_btn.addEventListener("click",()=>{
+                    modal.style.display = 'flex';
+                })
+                
                 // Close modal when clicking X
                 if (closeModal) {
                     closeModal.addEventListener('click', () => {
@@ -1396,10 +1422,15 @@ window.addEventListener("load", () => {
             }
             
             // Form validation
+            const blur=document.getElementById("removeBlur")
+            const remove_floor_btn_div=document.getElementById("display_floorBtn")
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
+                    remove_floor_btn_div.classList.add("hidden")
+                    blur.classList.remove("backdrop-blur-sm");
+                    videoModal.style.display = 'none';
                     validateForm(this);
                 });
             });
