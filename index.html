@@ -515,7 +515,7 @@
     </div>
 
     <!-- Header Section -->
-    <header class="bg-white shadow-md fixed w-full z-50">
+    <header class="bg-white shadow-md fixed w-full z-[60]">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-secondary">ISTAY BY STARWING</h1>
             <nav class="hidden md:block">
@@ -1444,15 +1444,22 @@ window.addEventListener("load", () => {
             const blur=document.getElementById("removeBlur")
             const remove_floor_btn_div=document.getElementById("display_floorBtn")
             const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    remove_floor_btn_div.classList.add("hidden")
-                    blur.classList.remove("backdrop-blur-sm");
-                    videoModal.style.display = 'none';
-                    validateForm(this);
-                });
-            });
+     forms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm(this)) { // assume it returns true if valid
+            // hide modal
+            remove_floor_btn_div.classList.add("hidden");
+            blur.classList.remove("backdrop-blur-sm");
+            videoModal.style.display = 'none';
+
+            // submit the form manually
+            form.submit();
+        }
+    });
+});
+
             
             function validateForm(form) {
                 let isValid = true;
